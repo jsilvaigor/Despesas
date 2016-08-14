@@ -8,3 +8,9 @@ ion-footer-bar input[type=text]{
 ion-footer-bar button{
     width: 10%;
 }
+.header-icon{
+  font-size: 18px
+}
+.center{
+     text-align:center;
+}

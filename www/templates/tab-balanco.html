@@ -1,5 +1,34 @@
 <ion-view view-title="Balanço">
   <ion-content class="padding">
-    <h2>Welcome to Ionic</h2>
+    <div class="card">
+      <div class="item item-icon-left item-balanced header-icon center">
+        <i class="icon ion-plus"></i> Total Ganhos
+      </div>
+
+      <div class="item item-body">
+        <h1 class="center">R$ {{totalGanhos}}</h1>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-icon-left item-assertive header-icon center">
+        <i class="icon ion-minus"></i> Total Despesas
+      </div>
+
+      <div class="item item-body">
+        <h1 class="center"> R$ -{{totalDespesas}}</h1>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-icon-left header-icon center"
+        ng-class="{'item-assertive': !saude, 'item-balanced': saude}">
+        <i ng-class="{'icon ion-minus': !saude, 'icon ion-plus': saude}"></i> Saúde Financeira
+      </div>
+
+      <div class="item item-body">
+        <h1 class="center">R$ {{calculaSaude()}}</h1>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

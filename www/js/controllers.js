@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('GanhosCtrl', function($scope) {
+.controller('GanhosCtrl', function($scope, $rootScope) {
   $scope.ganhos = [{
         nome: "Salario",
         valor: 1000
@@ -19,11 +19,13 @@ angular.module('starter.controllers', [])
             rtnTotal += $scope.ganhos[i].valor;
         }
 
+        $rootScope.totalGanhos = rtnTotal;
+
         return rtnTotal;
     };
 })
 
-.controller('DespesasCtrl', function($scope) {
+.controller('DespesasCtrl', function($scope, $rootScope) {
   $scope.despesas = [{
         nome: "Compras",
         valor: 1000
@@ -42,10 +44,29 @@ angular.module('starter.controllers', [])
             rtnTotal += $scope.despesas[i].valor;
         }
 
+        $rootScope.totalDespesas = rtnTotal;
+
         return rtnTotal;
     };
 })
 
-.controller('BalancoCtrl', function($scope) {})
+.controller('BalancoCtrl', function($scope, $rootScope) {
+
+  $scope.calculaSaude = function(){
+    var total = $rootScope.totalGanhos - $rootScope.totalDespesas;
+
+    if(total >= 0){
+      $scope.saude = true;
+    }else{
+      $scope.saude = false;
+    }
+
+    return total;
+
+  }
+
+
+
+})
 
 .controller('ContaCtrl', function($scope) {});
