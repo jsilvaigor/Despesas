@@ -18,8 +18,7 @@ angular.module('starter.controllers', [])
         for (var i = 0; i < $scope.ganhos.length; i++) {
             rtnTotal += $scope.ganhos[i].valor;
         }
-        //Salva os ganhos
-        window.localStorage.setItem('ganhos', rtnTotal);
+        
         return rtnTotal;
     };
 })
