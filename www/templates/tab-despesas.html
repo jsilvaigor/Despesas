@@ -1,5 +1,20 @@
 <ion-view view-title="Despesas">
   <ion-content class="padding">
-    <h2>Welcome to Ionic</h2>
+    <ion-list>
+      <ion-item ng-repeat="despesa in despesas" type="item-text-wrap">
+        {{despesa.nome}}
+        <span class="badge badge-assertive">-{{despesa.valor}}</span>
+      </ion-item>
+    </ion-list>
+    <div class="card-assertive">
+      <div class="item item-text-wrap">
+        Total despesa: <span class="badge badge-energized">-{{getTotal()}}</span>
+      </div>
+    </div>
   </ion-content>
+  <ion-footer-bar>
+    <input ng-model="nome" type="text" id="inputDespesa" placeholder="Digite um despesa" />
+    <input ng-model="valor" type="number" size="4" id="inputDespesaValor" placeholder="R$" />
+    <button class="button button-assertive icon ion-minus" ng-click="addDespesa($event)"></button>
+  </ion-footer-bar>
 </ion-view>
