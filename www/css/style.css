@@ -1,1 +1,10 @@
 /* Empty. Add your own CSS if you like */
+ion-footer-bar input[type=number]{
+    width: 20%;
+}
+ion-footer-bar input[type=text]{
+    width: 70%;
+}
+ion-footer-bar button{
+    width: 10%;
+}
