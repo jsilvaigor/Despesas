@@ -26,4 +26,6 @@ angular.module('starter.controllers', [])
 
 .controller('DespesasCtrl', function($scope) {})
 
+.controller('BalancoCtrl', function($scope) {})
+
 .controller('ContaCtrl', function($scope) {});
