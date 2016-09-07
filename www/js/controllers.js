@@ -1,12 +1,9 @@
 angular.module('starter.controllers', [])
 
-.controller('GanhosCtrl', function($scope, $rootScope) {
-  $scope.ganhos = [{
-        nome: "Salario",
-        valor: 1000
-    }];
+.controller('GanhosCtrl', function($scope, $rootScope, firebaseData, $firebaseArray) {
+  $scope.ganhos = $firebaseArray(firebaseData.refGanhos());
     $scope.addGanho = function(e) {
-        $scope.ganhos.push({
+        $scope.ganhos.$add({
             nome: $scope.nome,
             valor: $scope.valor
         });
@@ -25,13 +22,10 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('DespesasCtrl', function($scope, $rootScope) {
-  $scope.despesas = [{
-        nome: "Compras",
-        valor: 1000
-    }];
+.controller('DespesasCtrl', function($scope, $rootScope, firebaseData, $firebaseArray) {
+  $scope.despesas = $firebaseArray(firebaseData.refDespesas());
     $scope.addDespesa = function(e) {
-        $scope.despesas.push({
+        $scope.despesas.$add({
             nome: $scope.nome,
             valor: $scope.valor
         });
