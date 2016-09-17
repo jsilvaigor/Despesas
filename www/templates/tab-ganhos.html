@@ -1,5 +1,20 @@
 <ion-view view-title="Ganhos">
   <ion-content class="padding">
-    <h2>Welcome to Ionic</h2>
+    <ion-list>
+      <ion-item ng-repeat="ganho in ganhos" type="item-text-wrap">
+        {{ganho.nome}}
+        <span class="badge badge-balanced">{{ganho.valor}}</span>
+      </ion-item>
+    </ion-list>
+    <div class="card-assertive">
+      <div class="item item-text-wrap">
+        Total ganho: <span class="badge badge-positive">{{getTotal()}}</span>
+      </div>
+    </div>
   </ion-content>
+  <ion-footer-bar>
+    <input ng-model="nome" type="text" id="inputGanho" placeholder="Digite um ganho" />
+    <input ng-model="valor" type="number" size="4" id="inputGanhoValor" placeholder="R$" />
+    <button class="button button-balanced icon ion-plus" ng-click="addGanho($event)"></button>
+  </ion-footer-bar>
 </ion-view>
